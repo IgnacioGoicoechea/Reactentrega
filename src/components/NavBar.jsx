@@ -13,15 +13,17 @@ import {
     Spacer,
 } from '@chakra-ui/react'
 import CartWidget from "./CartWidget";
+import "../main"
 
 
 
 const NadBar = () => {
     return (
-        <div>
+        <div className="nadbar">
             <Flex>
                 <Box p="4" >
-                    <h3>Cif Computacion</h3>
+                    <h3> Cif Computacion
+                    </h3>
                 </Box>
                 <Spacer/>
                 <Box p="4">
@@ -37,12 +39,12 @@ const NadBar = () => {
                         <MenuItem>Todo</MenuItem>
                     </MenuList>
                 </Menu>
-
                 </Box>
-               
-                <Box p="4">
-                <CartWidget/>
+                <Spacer/>     
+                <Box>
+                    <CartWidget/> 
                 </Box>
+                      
             </Flex>
 
         </div>
