@@ -2,11 +2,12 @@ import React from 'react'
 import ItemCount from './ItemCount'
 import { useEffect, useState } from 'react';
 import ItemList from './ItemList';
+import { useParams } from 'react-router-dom';
 
 
 
 const ItemListContainer = ({ greeting }) => {
-
+  const {category} = useParams()
   const getProducts = async () => {
     const response = await fetch('https://fakestoreapi.com/products');
     const data = await response.json()
@@ -21,7 +22,7 @@ const ItemListContainer = ({ greeting }) => {
     getProducts().then((products) => setProduct(products))
   }, [])
 
-
+const filteredProducts = products.filter((products)=> products.category === category)
   return (
     <>
       <div className='fondo'>

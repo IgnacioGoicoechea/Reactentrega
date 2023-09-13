@@ -15,17 +15,24 @@ export const ItemDetailContainer = () => {
     useEffect(()=> {
         getProducts().then((product)=> setProduct(product))
     },[])
-  return (
-    <>
+
+
+    const productosFiltrados = productos.filter((producto) => producto.categoria === categoria)
+
+//   return (
+//     <>
     
-    {
-        product.map((p)=>{
-            return(
-                <ItemDetail product={p}/>
-            )
-        })
-    }
-    </>
-  )
+//     {
+//         product.map((p)=>{
+//             return(
+//                 <ItemDetail product={p}/>
+//             )
+//         })
+//     }
+//     </>
+//   )
+
+
+
 }
 export default ItemDetailContainer
