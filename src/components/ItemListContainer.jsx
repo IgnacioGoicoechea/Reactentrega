@@ -1,51 +1,34 @@
 import React from 'react'
 import ItemCount from './ItemCount'
-import { resolveBaseUrl } from 'vite';
+import { useEffect, useState } from 'react';
+import ItemList from './ItemList';
 
 
-const ItemListContainer = ({greeting}) => {
 
-  let producto = [
-    {id: 1, nombre: "producto a", descripcion: "descripcion de producto a", precio: 1000},
-    {id: 2, nombre: "producto d", descripcion: "descripcion de producto b", precio: 1500},
-    {id: 3, nombre: "producto c", descripcion: "descripcion de producto c", precio: 2000}
-];
+const ItemListContainer = ({ greeting }) => {
 
-const mostrarProductos = new Promise ((resolve, reject) => {
-  if (producto.length > 0) {
-    setTimeout(()=> {
-      resolve(producto)
-    }, 5000)
-  } else {
-    reject("No hay productos")
-  } 
-})
+  const getProducts = async () => {
+    const response = await fetch('https://fakestoreapi.com/products');
+    const data = await response.json()
+    console.log(data)
 
-mostrarProductos.then((resultado) => {
-  console.log(resultado)
-}).catch((error) => {
-  console.log(error)
-})
+    return data
+  };
+  const [products, setProduct] = useState([])
+  console.log(products)
+
+  useEffect(() => {
+    getProducts().then((products) => setProduct(products))
+  }, [])
 
 
-  
   return (
     <>
-    <div className='fondo'>
-        <h1>{greeting}</h1> 
-    </div>
-    <ItemCount/>
-    {
-      producto.map((p)=> {
-        return(
-          <div>
-            <h1>Nombre{p.nombre}</h1>
-            <h3>Descripcion{p.descripcion}</h3>
-            <p>${p.precio}</p>
-          </div>
-        )
-      })
-    }
+      <div className='fondo'>
+        <h1>{greeting}</h1>
+      </div>
+      <ItemCount />
+      <ItemList products={products}/>
 
     </>
   )
