@@ -13,7 +13,7 @@ import {
     Spacer,
 } from '@chakra-ui/react'
 import CartWidget from "./CartWidget";
-import "../main"
+import "../main.css"
 import { Link } from "react-router-dom";
 
 
@@ -24,8 +24,7 @@ const NadBar = () => {
             <Flex>
                 <Box p="4" >
                     <Link to={"/"}>
-                        <h3> Cif Computacion
-                        </h3>
+                        <h3> Cif Computacion</h3>
                     </Link>
                 </Box>
                 <Spacer />
@@ -35,11 +34,27 @@ const NadBar = () => {
                             Categoria
                         </MenuButton>
                         <MenuList>
-                            <MenuItem>jewelery</MenuItem>
-                            <MenuItem>electronics</MenuItem>
-                            <MenuItem>women's clothing</MenuItem>
-                            <MenuItem>men's clothing</MenuItem>
-                            <MenuItem>Todo</MenuItem>
+                            <Link to={`/categoria/${"notebook"}`}>
+                                <MenuItem>
+                                    Notebook
+                                </MenuItem>
+                            </Link>
+                            <Link to={`/>categoria/${"mouse"}`}>
+                                <MenuItem>
+                                    Mouse
+                                </MenuItem>
+                            </Link>
+                            <Link to={`/categoria/${"monitor"}`}>
+                                <MenuItem>
+                                    Monitores
+                                </MenuItem>
+                            </Link>
+                            <Link to={`/categoria/${"teclado"}`}>
+                                <MenuItem>
+                                    Teclados
+                                </MenuItem>
+                            </Link>
+
                         </MenuList>
                     </Menu>
                 </Box>

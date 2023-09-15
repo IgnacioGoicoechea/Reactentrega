@@ -30,7 +30,7 @@ return (
 <>
     <div className = 'contador'>
     <Button id='botonsuma' colorScheme='blue'onClick={sumarContador}>+</Button>
-    <h4 className='numeroContador' >{contador}</h4> 
+    <h4 >{contador}</h4> 
     <Button id='botonresta' colorScheme='red' onClick={restarContador}>-</Button>
     <Spacer/>
     <Button id='botonAlert' colorScheme='green' onClick={onAdd}>Agregar a Carrito</Button>

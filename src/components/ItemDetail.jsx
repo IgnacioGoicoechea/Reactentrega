@@ -3,17 +3,17 @@ import ItemCount from './ItemCount'
 import { Stack, CardBody, Heading, Text, CardFooter, Button, Card, Image } from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
 
-export const ItemDetail = ({ product }) => {
+export const ItemDetail = ({ productos }) => {
   const { id } = useParams()
 
-  const filteredProducts = product.filter((product) => product.id == id)
+  const filteredProducts = productos.filter((producto) => producto.id == id)
 
 
   return (
     <div>
-      {filteredProducts.map((product) => {
+      {filteredProducts.map((producto) => {
         return (
-          <div key={product.id}>
+          <div key={producto.id}>
             <Card
               direction={{ base: 'column', sm: 'row' }}
               overflow='hidden'
@@ -22,15 +22,17 @@ export const ItemDetail = ({ product }) => {
               <Image
                 objectFit='cover'
                 maxW={{ base: '100%', sm: '200px' }}
-                src={product.image}
+                src={p.imagen}
               />
 
               <Stack>
                 <CardBody>
-                  <Heading size='md'>{product.title}</Heading>
-
+                  <Heading size='md'>{producto.nombre}</Heading>
+                  <Text>
+                    {p.categoria}
+                  </Text>
                   <Text py='2'>
-                    {product.description}
+                    {producto.descripcion}
                   </Text>
                 </CardBody>
 
