@@ -22,14 +22,14 @@ export const ItemDetail = ({ productos }) => {
               <Image
                 objectFit='cover'
                 maxW={{ base: '100%', sm: '200px' }}
-                src={p.imagen}
+                src={producto.imagen}
               />
 
               <Stack>
                 <CardBody>
                   <Heading size='md'>{producto.nombre}</Heading>
                   <Text>
-                    {p.categoria}
+                    {producto.categoria}
                   </Text>
                   <Text py='2'>
                     {producto.descripcion}
