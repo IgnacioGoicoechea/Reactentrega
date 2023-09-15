@@ -39,7 +39,7 @@ const NadBar = () => {
                                     Notebook
                                 </MenuItem>
                             </Link>
-                            <Link to={`/>categoria/${"mouse"}`}>
+                            <Link to={`/categoria/${"mouse"}`}>
                                 <MenuItem>
                                     Mouse
                                 </MenuItem>
