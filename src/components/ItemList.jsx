@@ -3,7 +3,7 @@ import Item  from "./Item"
 
 const ItemList = ({productos}) => {
     return (
-        <div>
+        <div key={productos.id}>
             {
                 productos.map((p) => {
                     return(

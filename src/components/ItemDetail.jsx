@@ -3,10 +3,10 @@ import ItemCount from './ItemCount'
 import { Stack, CardBody, Heading, Text, CardFooter, Button, Card, Image } from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
 
-export const ItemDetail = ({ productos }) => {
+export const ItemDetail = ({ producto }) => {
   const { id } = useParams()
 
-  const filteredProducts = productos.filter((producto) => producto.id == id)
+  const filteredProducts = producto.filter((producto) => producto.id == id)
 
 
   return (
@@ -37,9 +37,7 @@ export const ItemDetail = ({ productos }) => {
                 </CardBody>
 
                 <CardFooter>
-                  <Button variant='solid' colorScheme='blue'>
-                    Comprar
-                  </Button>
+                  
                   <ItemCount />
                 </CardFooter>
               </Stack>

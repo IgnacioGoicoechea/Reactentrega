@@ -14,7 +14,7 @@ const CartWidget = () => {
         <Divider/>
         <Box p="4">
           <p>
-            6
+            {"contador"}
           </p>
         </Box>
       </Flex>

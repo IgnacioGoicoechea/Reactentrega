@@ -3,21 +3,29 @@ import ItemDetailContainer from "./components/ItemDetailContainer"
 import ItemListContainer from "./components/itemListContainer"
 import NadBar from "./components/NavBar/"
 import Cart from "./components/Cart"
+import Form from "./components/Form"
+import CartContext from "./context/cartContext"
 
 const App = () => {
- 
+
+
+
+
   return (
     <BrowserRouter>
-      <NadBar/>
+        <NadBar />
+      
+    <CartContext>
+        <Routes>
+          <Route exact path='/cart' element={<Cart />} />
+          <Route exact path='/' element={<ItemListContainer />} />
+          <Route path='/categoria/:categoria' element={<ItemListContainer />} />
+          <Route exact path='/item/:id' element={<ItemDetailContainer />} />
+        </Routes>
+    </CartContext>
+      </BrowserRouter>
 
-      <Routes>
-      <Route exact path='/cart' element={<Cart />}/>
-      <Route exact path='/' element={<ItemListContainer />}/>
-      <Route path='/categoria/:categoria' element={<ItemListContainer/>}/>
-      <Route exact path='/item/:id' element={<ItemDetailContainer/>}/>
-      </Routes>
-    </BrowserRouter>
   )
 
-  }
+}
 export default App

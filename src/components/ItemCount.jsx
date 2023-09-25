@@ -29,9 +29,9 @@ const onAdd = () => {
 return (
 <>
     <div className = 'contador'>
-    <Button id='botonsuma' colorScheme='blue'onClick={sumarContador}>+</Button>
-    <h4 >{contador}</h4> 
     <Button id='botonresta' colorScheme='red' onClick={restarContador}>-</Button>
+    <h4 >{contador}</h4> 
+    <Button id='botonsuma' colorScheme='blue'onClick={sumarContador}>+</Button>
     <Spacer/>
     <Button id='botonAlert' colorScheme='green' onClick={onAdd}>Agregar a Carrito</Button>
     </div>

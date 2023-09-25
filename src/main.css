@@ -8,7 +8,7 @@ h1{
     padding: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: xx-large;
-    color: rgb(255, 255, 255);
+   
    
 }
 
@@ -17,4 +17,11 @@ h1{
 }
 button{
     height: 15px;
+}
+.contador{
+    display: flex;
+    align-items: center;
+}
+.contador button{
+    margin: 0 10px ;
 }

@@ -7,13 +7,10 @@ export const Item = ({ p }) => {
     <div >
       <Card maxW='sm'>
         <CardBody>
-          <Image
-            src={p.imagen}
-            borderRadius='lg'
-          />
+         
           <Stack mt='6' spacing='3'>
             <Heading size='md'>{p.nombre}</Heading>
-
+            
           </Stack>
         </CardBody>
         <Divider />
