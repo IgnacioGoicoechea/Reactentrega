@@ -6,17 +6,21 @@ import { useParams } from 'react-router-dom';
 
 
 
+
 const ItemListContainer = () => {
-  const { categoria } = useParams()
+ const { categoria } = useParams()
   const [productos, setProductos] = useState([])
   console.log(productos)
 
   useEffect(() => {
       const db = getFirestore()
 
-      const itemsCollection = collection(db,`${categoria}`)
+      const itemsCollection = collection(db,`productos`)
       getDocs(itemsCollection).then((snapshot)=>{
-          const docs = snapshot.docs.map((doc) => doc.data())
+          const docs = snapshot.docs.map((doc) => 
+           ({
+            ...doc.data(), id: doc.id
+        }))
           setProductos(docs)
       })
   },[])
@@ -25,8 +29,7 @@ const ItemListContainer = () => {
   return (
     <>
      {
-
-    categoria ? <ItemList productos={filteredProducts} /> : <ItemList productos={productos} />
+      categoria ? <ItemList productos={filteredProducts} /> : <ItemList productos={productos} />
      }
       
 

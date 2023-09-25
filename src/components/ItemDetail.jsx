@@ -1,51 +1,45 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ItemCount from './ItemCount'
-import { Stack, CardBody, Heading, Text, CardFooter, Button, Card, Image } from '@chakra-ui/react'
+
 import { useParams } from 'react-router-dom'
+import { CartContext } from '../context/cartContext'
 
-export const ItemDetail = ({ producto }) => {
-  const { id } = useParams()
-
-  const filteredProducts = producto.filter((producto) => producto.id == id)
-
+export const ItemDetail = ({ productos }) => {
+  console.log(productos)
+  const { addItem } = useContext(CartContext);
+  function handleAddItem(quantity) {
+    addItem(productos[0], quantity)
+  }
 
   return (
-    <div>
-      {filteredProducts.map((producto) => {
-        return (
-          <div key={producto.id}>
-            <Card
-              direction={{ base: 'column', sm: 'row' }}
-              overflow='hidden'
-              variant='outline'
-            >
-              <Image
-                objectFit='cover'
-                maxW={{ base: '100%', sm: '200px' }}
-                src={producto.imagen}
-              />
+    <>
 
-              <Stack>
-                <CardBody>
-                  <Heading size='md'>{producto.nombre}</Heading>
-                  <Text>
-                    {producto.categoria}
-                  </Text>
-                  <Text py='2'>
-                    {producto.descripcion}
-                  </Text>
-                </CardBody>
-
-                <CardFooter>
-                  
-                  <ItemCount />
-                </CardFooter>
-              </Stack>
-            </Card>
+    <div className='detelle-producto'>
+      <div className='posicion-detalle'>
+        <div>
+          <img className='imagen-detalle' src={productos.imagen1} alt="" />
+        </div>
+        
+        <div className='detalle-detalle'>
+          <div className='espacio'>
+            <h1>{productos.nombre}</h1>
           </div>
+          <div className='espacio'>
+            <p>{productos.descripcion}</p>
+          </div> 
+          <div className='precio espacio'>
+            <h2>{productos.precio}</h2>
+          </div>
+        <ItemCount handleAdd={handleAddItem} />
+        </div>
 
-        )
-      })
-      }
-    </div>)
+      </div>
+      <div className='añadir'>
+
+      </div>
+
+    </div>
+
+   
+    </>)
 }

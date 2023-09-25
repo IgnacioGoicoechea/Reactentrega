@@ -34,22 +34,22 @@ const NadBar = () => {
                             Categoria
                         </MenuButton>
                         <MenuList>
-                            <Link to={`/categoria/${"notebook"}`}>
+                            <Link to={`/categoria/${"Notebook"}`}>
                                 <MenuItem>
                                     Notebook
                                 </MenuItem>
                             </Link>
-                            <Link to={`/categoria/${"mouse"}`}>
+                            <Link to={`/categoria/${"Mouse"}`}>
                                 <MenuItem>
                                     Mouse
                                 </MenuItem>
                             </Link>
-                            <Link to={`/categoria/${"monitor"}`}>
+                            <Link to={`/categoria/${"Monitor"}`}>
                                 <MenuItem>
                                     Monitores
                                 </MenuItem>
                             </Link>
-                            <Link to={`/categoria/${"teclado"}`}>
+                            <Link to={`/categoria/${"Teclado"}`}>
                                 <MenuItem>
                                     Teclados
                                 </MenuItem>

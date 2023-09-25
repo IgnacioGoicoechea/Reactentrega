@@ -13,7 +13,10 @@ export const Collection = () => {
 
         const itemsCollection = collection(db,`${categoria}`)
         getDocs(itemsCollection).then((snapshot)=>{
-            const docs = snapshot.docs.map((doc) => doc.data())
+            const docs = snapshot.docs.map((doc) => 
+            ({
+                ...doc.data(), id: doc.id
+            }))
             setProductos(docs)
         })
     },[])
