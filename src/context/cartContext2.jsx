@@ -7,25 +7,6 @@ export const CartContext = createContext(
 )
 
 const ShoppingCartProvider = ({ children }) => {
-
-  //  importacion de productos
-
-  const { id } = useParams()
-  const [productos, setProductos] = useState ([])
-
-  useEffect(()=> {
-    const db = getFirestore()
-    const oneItem= doc(db,"productos",`${id}`)
-    getDoc(oneItem).then((snapshot) => {
-      if(snapshot.exists()){
-        const docs = snapshot.data()
-        setProductos(docs)
-      }
-    })
-  }, [])
-
-
-
     
     const [cart, setCart] = useState([])
 
@@ -51,7 +32,7 @@ const ShoppingCartProvider = ({ children }) => {
     }
   
   return (
-    <CartContext.Provider value={{cart, setCart, addItem, removeItem, clearCart,productos }}>
+    <CartContext.Provider value={{cart, setCart, addItem, removeItem, clearCart, }}>
         {children}
     </CartContext.Provider>
   )

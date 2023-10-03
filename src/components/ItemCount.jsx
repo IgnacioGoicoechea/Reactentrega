@@ -1,9 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
-import { Button, ButtonGroup, Spacer } from '@chakra-ui/react'
+import { Button,  Spacer } from '@chakra-ui/react'
+// import { CartContext } from '../context/CartContext'
+import { useContext } from 'react'
 
-const ItemCount = () => {
 
+const ItemCount = ({productos}) => {
+const {addItem} = useContext(CartContext)
 const [contador, setContador] = useState (0)
 
 //Funcion para sumar en el contador hasta maximo 10 unidades
@@ -22,7 +25,7 @@ const restarContador = () => {
 
 const onAdd = () => {
     if(contador > 0){
-        alert(`Agregaste ${contador} items al carrito`)
+        addItem(productos)
     }
     
 }

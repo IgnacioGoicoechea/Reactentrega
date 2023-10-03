@@ -4,10 +4,7 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    MenuItemOption,
-    MenuGroup,
-    MenuOptionGroup,
-    MenuDivider,
+    Image,
     Flex,
     Box,
     Spacer,
@@ -23,8 +20,8 @@ const NadBar = () => {
         <div className="nadbar">
             <Flex>
                 <Box p="4" >
-                    <Link to={"/"}>
-                        <h3> Cif Computacion</h3>
+                    <Link to={"/inicio"}>
+                        <Image className="logo" src="https://firebasestorage.googleapis.com/v0/b/cif-computacion.appspot.com/o/Logo%20CIF%2001.png?alt=media&token=f9ed5af1-ed4b-4c22-80f9-ebd5601e44ec&_gl=1*1t2h78b*_ga*MTYzMDMyNjMyNS4xNjk1NTg2MDQy*_ga_CW55HF8NVT*MTY5NjI3NTA5My4xMC4xLjE2OTYyNzUxNDcuNi4wLjA."></Image>
                     </Link>
                 </Box>
                 <Spacer />

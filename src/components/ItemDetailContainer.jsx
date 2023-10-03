@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { ItemDetail } from './ItemDetail'
 import {doc, getDoc, getFirestore} from 'firebase/firestore'
+import { Loading } from './Loading'
 
 export const ItemDetailContainer = () => {
   //trae el producto seleccionado por id, muestra ese solo producto (sin necesidad de un filter)
@@ -20,22 +21,23 @@ export const ItemDetailContainer = () => {
     })
   }, [])
   console.log(productos)
+ 
 
 
-  return (
-    <>
-    <div className='recuadro'>
+   return (
+     <>
+     <div className='recuadro'>
 
-    {
-    <ItemDetail productos={productos}/>
+    
+     <ItemDetail productos={productos}/>
    
-    }
-    </div>
-    <div className='recuadro2'>
-      <p>{productos.descripcion2}
-        </p>
-    </div>
-    </>
+    
+     </div>
+     <div className='recuadro2'>
+       <p>{productos.descripcion2}
+         </p>
+     </div>
+     </>
   )
 }
 export default ItemDetailContainer

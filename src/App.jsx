@@ -3,8 +3,11 @@ import ItemDetailContainer from "./components/ItemDetailContainer"
 import ItemListContainer from "./components/itemListContainer"
 import NadBar from "./components/NavBar/"
 import Cart from "./components/Cart"
+import Home from "./components/Home"
+import Signup from "./components/Signup"
+import Login from "./components/Login"
 
-import CartContext from "./context/cartContext"
+import CartContext from "./context/cartContext2"
 
 const App = () => {
 
@@ -12,19 +15,23 @@ const App = () => {
 
 
   return (
-    <BrowserRouter>
 
-      <CartContext>
-        <NadBar />
-        <Routes>
-          <Route exact path='/cart' element={<Cart />} />
-          <Route exact path='/' element={<ItemListContainer />} />
-          <Route path='/categoria/:categoria' element={<ItemListContainer />} />
-          <Route exact path='/item/:id' element={<ItemDetailContainer />} />
-        </Routes>
-      </CartContext>
-    </BrowserRouter>
-
+     <BrowserRouter>
+  
+       <CartContext>
+         <NadBar />
+         <Routes>
+         <Route path="/" element={<Home />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+           <Route exact path='/cart' element={<Cart />} />
+           <Route exact path='/inicio' element={<ItemListContainer />} />
+           <Route path='/categoria/:categoria' element={<ItemListContainer />} />
+           <Route exact path='/item/:id' element={<ItemDetailContainer />} />
+         </Routes>
+       {/* <Cart/> */}
+       </CartContext>
+     </BrowserRouter>
   )
 
 }

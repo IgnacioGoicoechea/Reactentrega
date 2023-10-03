@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import ItemList from './ItemList';
 import { collection, getDocs, getFirestore } from 'firebase/firestore'
 import { useParams } from 'react-router-dom';
+import Loading from './Loading';
 
 
 
@@ -28,8 +29,8 @@ const ItemListContainer = () => {
   const filteredProducts = productos.filter((producto) => producto.categoria === categoria)
   return (
     <>
-     {
-      categoria ? <ItemList productos={filteredProducts} /> : <ItemList productos={productos} />
+     {filteredProducts.length > 0 
+     ? <ItemList productos={filteredProducts} /> : <ItemList productos={productos} /> 
      }
       
 

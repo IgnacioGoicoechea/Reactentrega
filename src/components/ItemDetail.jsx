@@ -1,15 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import ItemCount from './ItemCount'
 
-import { useParams } from 'react-router-dom'
-import { CartContext } from '../context/cartContext'
 
 export const ItemDetail = ({ productos }) => {
-  console.log(productos)
-  const { addItem } = useContext(CartContext);
-  function handleAddItem(quantity) {
-    addItem(productos[0], quantity)
-  }
+  
+
+
 
   return (
     <>
@@ -30,13 +26,11 @@ export const ItemDetail = ({ productos }) => {
           <div className='precio espacio'>
             <h2>{productos.precio}</h2>
           </div>
-        <ItemCount handleAdd={handleAddItem} />
+        {/* <ItemCount productos={productos} /> */}
         </div>
 
       </div>
-      <div className='añadir'>
-
-      </div>
+      
 
     </div>
 
