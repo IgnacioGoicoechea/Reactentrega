@@ -1,60 +1,44 @@
-import {useState, createContext} from 'react'
+import { calcLength } from "framer-motion";
+import { createContext, useState } from "react";
 
+export const CartContext = createContext(null);
 
+const CartContextProvider = ({ children }) => {
 
-export const CartContext = createContext(
- { Cart : []}
-)
+  const [cart, setCart] = useState([]);
 
-const ShoppingCartProvider = ({ children }) => {
+  const clearCart = () => setCart([]);
 
-  //  importacion de productos
+  const enCart = (id) => {
+    return cart.find (producto => producto.id === id) ? true : false
+  }
 
-  const { id } = useParams()
-  const [productos, setProductos] = useState ([])
+  const quitarDelCart = (id) => setCart(cart.filter(producto => producto.id !== id))
 
-  useEffect(()=> {
-    const db = getFirestore()
-    const oneItem= doc(db,"productos",`${id}`)
-    getDoc(oneItem).then((snapshot) => {
-      if(snapshot.exists()){
-        const docs = snapshot.data()
-        setProductos(docs)
-      }
-    })
-  }, [])
-
-
-
-    
-    const [cart, setCart] = useState([])
-
-    
-    const addItem = (item, quantity) => {
-      if(!isInCar(item.id)){
-        setCart(prev => [...prev, {...item, quantity}])
-      } else {
-        console.error('el producto ya fue agregado')
-      }
+  const agregarAlCart = (item, quantity) => {
+    if(enCart(item.id)){
+      setCart(cart.map(producto => {return producto.id === item.id ? {...producto, quantity: producto.quantity + quantity} : producto}))
+    }else{
+        setCart([...cart, {...item, quantity}])
     }
+  }
 
-    const removeItem = (itemId) => {
-      const cartUpdated = cart.filter(prod => prod.id !== itemId)
-      setCart(cartUpdated)
-    }
 
-    const clearCart = () => {
-      setCart ([])
-    }
-    const isInCart = (itemId) => {
-      return cart.some(prod => prod.id === itemId)
-    }
-  
-  return (
-    <CartContext.Provider value={{cart, setCart, addItem, removeItem, clearCart,productos }}>
-        {children}
-    </CartContext.Provider>
-  )
+
+const precioTotal = () => {
+  return cart.reduce ((prev, act) => prev + act.quantity * act.precio, 0)
 }
 
-export default ShoppingCartProvider
+const productosTotales = () => cart.reduce((acumulador, productoActual) => acumulador + productoActual.quantity, 0)
+
+
+console.log('carrito', cart);
+
+  return (
+    <CartContext.Provider value={{clearCart, enCart, quitarDelCart, agregarAlCart, precioTotal, productosTotales, cart}}>
+      {children}
+    </CartContext.Provider>
+  );
+};
+
+export default CartContextProvider;

@@ -1,50 +1,66 @@
-import { Alert } from '@chakra-ui/react'
-import React, { useState } from 'react'
-import { collection, addDoc, getFirestore } from 'firebase/firestore'
-import Cart from './Cart'
-import { CartContext } from '../context/cartContext'
+import React from "react";
+import { useState } from "react";
+import { collection, addDoc, getFirestore } from "firebase/firestore";
+import {
+  Button,
+  Divider,
+  FormControl,
+  FormLabel,
+  Input,
+} from "@chakra-ui/react";
+const Form = () => {
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [orderId, setOrderId] = useState(null);
 
-export const Form = () => {
-    const [nombre, setNombre] = useState("")
-    const [email, setEmail] = useState("")
-    const [orderId, setOrderId] = useState("")
-    const db= getFirestore()
+  const db = getFirestore();
 
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    nombre === ""
+      ? alert("Campo de nombre Vacio")
+      : alert(`Gracias por su compra ${nombre}`);
+    email === ""
+      ? alert("Ingrese correo para comprar")
+      : alert(`Factura enviada a ${email}`);
 
+    addDoc(ordersCollection, order).then(({ id }) => setOrderId(id));
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        nombre === ""? alert ("campo nombre vacio"): alert(`Bienvenido  ${nombre}`)
-        email === ""? alert ("campo email vacio"): alert(`registrado con el email, ${email}`)
+  const order = {
+    nombre,
+    email,
+  };
 
-      addDoc(orderCollection, order).then(({id}) => setOrderId(id))
-
-      // setCart([])
-    }
-
-
-    const order ={
-      comprador:{
-        nombre, email
-
-      },
-    
-      
-    }
-    const orderCollection= collection(db, "order")
+  const ordersCollection = collection(db, "orden");
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
-        <input type="text" placeholder='Nombre'onChange={(e) => setNombre(e.target.value)}/>
-        <input type="email" placeholder='Email'onChange={(e) => setEmail(e.target.value)}/>
-        <button type='submit'> enviar</button>
+        <form onSubmit={handelSubmit}>
+    <div className="formulario">
+      <FormControl onSubmit={handelSubmit}>
+        <FormLabel>Nombre</FormLabel>
+        <Input
+          placeholder="Nombre"
+          type="text"
+          onChange={(e) => setNombre(e.target.value)}
+        />
+        <FormLabel>Email</FormLabel>
+        <Input
+          placeholder="Email"
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+          />
 
+        <Button colorScheme="orange" className="btnComprar" type="submit">
+          Realizar Compra
+        </Button>
+      </FormControl>
+      <div>Tu Id es: {orderId}</div>
+    </div>
     </form>
+          </>
+  );
+};
 
-    <h3>Id de tu compra: {orderId}</h3>
-    </>
-  )
-}
-
-export default Form
+export default Form;

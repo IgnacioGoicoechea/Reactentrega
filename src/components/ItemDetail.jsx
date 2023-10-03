@@ -1,12 +1,19 @@
 import React, { useContext, useState } from 'react'
 import ItemCount from './ItemCount'
-
+import { Link } from 'react-router-dom'
+import { CartContext } from '../context/cartContext'
+import { Button } from '@chakra-ui/react'
 
 export const ItemDetail = ({ productos }) => {
+  const {agregarAlCart} = useContext(CartContext)
+
+  const [irAlCart, setIrAlCart] = useState(false)
+
   
-
-
-
+  const onAdd = (quantity) => {
+    setIrAlCart(true);
+    agregarAlCart(productos, quantity);
+  } 
   return (
     <>
 
@@ -26,9 +33,11 @@ export const ItemDetail = ({ productos }) => {
           <div className='precio espacio'>
             <h2>{productos.precio}</h2>
           </div>
-        {/* <ItemCount productos={productos} /> */}
+      
         </div>
-
+        {
+            irAlCart ? <Link to='/cart'> <Button colorScheme="green">Terminar Compra</Button></Link> : <ItemCount initial={1} onAdd={onAdd} />
+            }
       </div>
       
 

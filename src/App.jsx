@@ -7,7 +7,7 @@ import Home from "./components/Home"
 import Signup from "./components/Signup"
 import Login from "./components/Login"
 
-import CartContext from "./context/cartContext2"
+import CartContext from "./context/cartContext"
 
 const App = () => {
 
@@ -15,10 +15,10 @@ const App = () => {
 
 
   return (
-
+    
+    <CartContext>
      <BrowserRouter>
   
-       <CartContext>
          <NadBar />
          <Routes>
          <Route path="/" element={<Home />} />
@@ -30,8 +30,8 @@ const App = () => {
            <Route exact path='/item/:id' element={<ItemDetailContainer />} />
          </Routes>
        {/* <Cart/> */}
-       </CartContext>
      </BrowserRouter>
+       </CartContext>
   )
 
 }
