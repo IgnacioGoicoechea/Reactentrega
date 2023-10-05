@@ -1,26 +1,21 @@
-import React from 'react'
-import { PhoneIcon, AddIcon, WarningIcon } from '@chakra-ui/icons'
-import { Box, Divider, Flex } from '@chakra-ui/react'
-import "../main"
-
+import React from "react";
+import { useContext } from "react";
+import { CartContext } from "../context/cartContext"; 
 const CartWidget = () => {
+
+    const {productosTotales} = useContext(CartContext);
+
+
+
+
   return (
-    <div>
-      <Flex>
-
-        <Box p="4">
-           <AddIcon/>
-        </Box>
-        <Divider/>
-        <Box p="4">
-          <p>
-            {"contador"}
-          </p>
-        </Box>
-      </Flex>
-     
-    </div>
-  )
-}
-
-export default CartWidget
+    <>
+      <div className="cartShop">
+        <span >carrito</span>
+        <span className="cartItems">{productosTotales()|| ''}</span>
+      </div>
+    </>
+  );
+  console.log(productosTotales)
+};
+export default CartWidget;

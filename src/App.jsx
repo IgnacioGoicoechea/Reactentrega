@@ -8,6 +8,7 @@ import Signup from "./components/Signup"
 import Login from "./components/Login"
 
 import CartContext from "./context/cartContext"
+import Form from "./components/Form"
 
 const App = () => {
 
@@ -28,8 +29,9 @@ const App = () => {
            <Route exact path='/inicio' element={<ItemListContainer />} />
            <Route path='/categoria/:categoria' element={<ItemListContainer />} />
            <Route exact path='/item/:id' element={<ItemDetailContainer />} />
+           <Route exact path='/form' element={<Form />} />
          </Routes>
-       {/* <Cart/> */}
+     
      </BrowserRouter>
        </CartContext>
   )

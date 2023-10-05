@@ -1,19 +1,13 @@
 import React from "react"
 import Item  from "./Item"
+import Loading from "./Loading"
 
 const ItemList = ({productos}) => {
     return (
-        <div className="contenedor" key={productos.nombre}>
-            {
-                productos.map((p) => {
-                    return(
-                        <>
-                           <Item p={p} key={p.id}
-                          />
-                        </>
-                    )
-                })
-            }
+        <div className="contenedor" >
+              {
+        Loading ? <Item productos={productos}/> : <Loading/>
+      }
         </div>
     )
 

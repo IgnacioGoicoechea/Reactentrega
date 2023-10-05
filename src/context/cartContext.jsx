@@ -1,4 +1,3 @@
-import { calcLength } from "framer-motion";
 import { createContext, useState } from "react";
 
 export const CartContext = createContext(null);
@@ -32,7 +31,7 @@ const precioTotal = () => {
 const productosTotales = () => cart.reduce((acumulador, productoActual) => acumulador + productoActual.quantity, 0)
 
 
-console.log('carrito', cart);
+console.log( cart);
 
   return (
     <CartContext.Provider value={{clearCart, enCart, quitarDelCart, agregarAlCart, precioTotal, productosTotales, cart}}>

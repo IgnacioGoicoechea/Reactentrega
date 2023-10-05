@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { CartContext } from '../context/cartContext'
 import { Button } from '@chakra-ui/react'
 
-export const ItemDetail = ({ productos }) => {
+export const ItemDetail = ({ producto }) => {
   const {agregarAlCart} = useContext(CartContext)
 
   const [irAlCart, setIrAlCart] = useState(false)
@@ -12,36 +12,42 @@ export const ItemDetail = ({ productos }) => {
   
   const onAdd = (quantity) => {
     setIrAlCart(true);
-    agregarAlCart(productos, quantity);
+    agregarAlCart(producto, quantity);
   } 
   return (
     <>
+<div className='recuadro'>
 
     <div className='detelle-producto'>
       <div className='posicion-detalle'>
         <div>
-          <img className='imagen-detalle' src={productos.imagen1} alt="" />
+          <img className='imagen-detalle' src={producto.imagen1} alt="" />
         </div>
         
         <div className='detalle-detalle'>
           <div className='espacio'>
-            <h1>{productos.nombre}</h1>
+            <h1>{producto.nombre}</h1>
           </div>
           <div className='espacio'>
-            <p>{productos.descripcion}</p>
+            <p>{producto.descripcion}</p>
           </div> 
           <div className='precio espacio'>
-            <h2>{productos.precio}</h2>
+            <h2>{producto.precio}</h2>
           </div>
       
         </div>
         {
-            irAlCart ? <Link to='/cart'> <Button colorScheme="green">Terminar Compra</Button></Link> : <ItemCount initial={1} onAdd={onAdd} />
-            }
+          irAlCart ? <Link to='/cart'> <Button colorScheme="green">Terminar Compra</Button></Link> : <ItemCount initial={1} onAdd={onAdd} />
+        }
       </div>
       
 
     </div>
+        </div>
+        <div className='recuadro2'>
+       <p>{producto.descripcion2}
+         </p>
+     </div>
 
    
     </>)

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import { Button, Spacer } from '@chakra-ui/react'
-// import { useContext } from 'react'
-// import { CartContext } from '../context/CartContext'
+import { useContext } from 'react'
+import { CartContext } from '../context/cartContext' 
 const ItemCount = ({initial, stock, onAdd}) => {
 
 const [contador, setContador] = useState (initial)

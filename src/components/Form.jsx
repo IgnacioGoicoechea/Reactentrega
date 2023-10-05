@@ -21,8 +21,8 @@ const Form = () => {
       ? alert("Campo de nombre Vacio")
       : alert(`Gracias por su compra ${nombre}`);
     email === ""
-      ? alert("Ingrese correo para comprar")
-      : alert(`Factura enviada a ${email}`);
+      ? alert("Ingrese una direccion para comprar")
+      : alert(`Enviaremos tu pedido a  ${email}`);
 
     addDoc(ordersCollection, order).then(({ id }) => setOrderId(id));
   };
@@ -31,6 +31,8 @@ const Form = () => {
     nombre,
     email,
   };
+
+  
 
   const ordersCollection = collection(db, "orden");
 
@@ -45,10 +47,10 @@ const Form = () => {
           type="text"
           onChange={(e) => setNombre(e.target.value)}
         />
-        <FormLabel>Email</FormLabel>
+        <FormLabel>Direccion</FormLabel>
         <Input
-          placeholder="Email"
-          type="email"
+          placeholder="Direccion"
+          type="text"
           onChange={(e) => setEmail(e.target.value)}
           />
 

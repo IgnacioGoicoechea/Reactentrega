@@ -6,12 +6,32 @@ body{
 }
 .nadbar{
     background-color: #000000;
-    color: blue;
+    color: rgb(164, 167, 245);
+  
 }
 .logo{
     height: 100px;
 }
 
+
+.css-1kfu8nn{
+color: #000000 !important;
+border: 1px #000  solid;
+
+}
+
+
+
+.css-k008qs {
+ padding: 0 30px;
+  display: flex;
+  align-items: center;
+}
+
+.chakra-menu__menuitem{
+  height: 30px;
+  border-bottom: #00000069 1px solid;
+}
 
 h1{
     text-align: center;
@@ -207,7 +227,7 @@ button{
     margin: 7.5px;
     height: 345px;
     width: 190px;
-    border-radius: 1rem;
+    
     padding: 0 5px 10px 5px;
     box-shadow: 0 15px 50px rgba(29, 139, 117, 0.845);
     text-align: center;
@@ -271,7 +291,23 @@ image{
 .boton:hover{
     background-color: rgb(255, 255, 255);
     color: rgb(53, 66, 235);}
+/* carrito */
+.espacio-vacio{
+  width: auto;
+  display: flex;
+justify-content: center;
+padding: 20px;
+}
+.carritovacio{
+  height: 300px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    justify-content: space-around;
+    border: #000 1px solid;
 
+}
 
 /* carta del producto */
 .detalle-producto{
@@ -324,29 +360,7 @@ image{
 }
 
 
-    .cart{
-    background: #000;
-    display: none;
-    padding: 32px;
-    position: fixed;
-    right: 0px;
-    top: 0px;
-    width: 200px;
-}
-    .cart img{
-        aspect-ratio: 16/9;
-        padding-bottom: 16px;
-    }
-
-    .cart footer{
-        display: flex;
-        gap: 8px;
-        justify-content: center;
-        align-items: center;
-    }
-    .cart footer button {
-        padding: 8px;
-    }
+   
     .boton-carrito{
         align-items: center;
         background: #09f;
@@ -370,3 +384,74 @@ image{
     height: 100%;
     display: block;
     }
+
+
+    
+    .cartCard{
+      display: flex;
+      align-items: center;
+    justify-content: space-between;
+    border: #fff 1px solid;
+    padding: 15px;
+    }
+    .imagen-carrito{
+      height: 150px;
+    }
+
+    .itemcart{
+      display: flex;
+    }
+    .boton-carrito2{
+      border: #000 1px solid;
+      box-shadow: 0 10px 10px rgba(29, 139, 117, 0.845);
+      margin: 10px;
+    }
+
+    .recuadro-carrito{
+      padding: 10px;
+      margin: 15px;
+      box-shadow: 0 10px 50px rgba(29, 139, 117, 0.845);
+      text-align: center;
+      transition: 0.5s;
+      background-color: rgba(0, 0, 0, 0.669);
+      color: aliceblue;
+      border-radius: 1rem;
+      display: flex;
+     
+      align-items: center;
+    justify-content: space-between;
+  }
+
+  .preciototal{
+    margin: 15px;
+    color: aliceblue;
+  }
+  .formulario{
+    padding: 10px;
+    margin: 15px;
+    box-shadow: 0 10px 50px rgba(29, 139, 117, 0.845);
+    text-align: center;
+    transition: 0.5s;
+    background-color: rgba(0, 0, 0, 0.669);
+    color: aliceblue;
+    border-radius: 1rem;
+    display: flex;
+   flex-direction: column;
+  }
+
+  .preciootal{
+    color: #fff;
+    padding: 15px;
+  }
+
+  .itemcart{
+    padding: 15px;
+    border: #fff solid 1px;
+    border-radius:  1rem;
+    margin: 15px;
+    justify-content: space-around;
+  }
+
+  .recuadro-carrito h2{
+margin: 10px;
+  }

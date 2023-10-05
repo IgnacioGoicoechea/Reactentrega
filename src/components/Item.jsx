@@ -1,10 +1,12 @@
 import React from 'react'
 import {  Image, CardBody, Stack, Text, Divider, Button, ButtonGroup, CardFooter, Heading } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-export const Item = ({ p }) => {
+export const Item = ({ productos }) => {
   console.log()
   return (
-    <div>
+    <>
+    {productos.map((p) => (
+      <div key={p.id}>
 
     <div className='producto' >
       <div>
@@ -31,7 +33,9 @@ export const Item = ({ p }) => {
 
 
     </div>
-    </div>
+    </div>))}
+      </>
   )
 }
+
 export default Item
